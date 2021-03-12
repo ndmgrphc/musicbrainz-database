@@ -44,6 +44,14 @@ docker run -it --link musicbrainz-database:postgresql --rm arey/musicbrainz-data
 ```
 Enter the 'musicbrainz' password. A minimum number of 995899 artists should be counted.
 
+
+```
+# or get bash for container
+docker exec -it musicbrainz-database /bin/bash
+# then test queries
+psql -h localhost -d musicbrainz -U musicbrainz -a -c "SELECT * FROM artist where name = 'Built to Spill'"
+```
+
 ##  Connect to the database
 
 From Java application, use the following JDBC URL: jdbc:postgresql://localhost:5432/musicbrainz and the credentials: musicbrainz / musicbrainz
